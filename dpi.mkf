@@ -6,6 +6,9 @@ files
 {
 	["Src"]
 	src/dpiInfo.cpp
+	src/dpiLength.cpp
 	["h"]
 	h/dpiInfo.h
+	h/dpiLength.h
+	h/dpiLengthUnit.h
 }
