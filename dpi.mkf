@@ -1,0 +1,11 @@
+includepaths
+{
+	"./h"
+}
+files
+{
+	["Src"]
+	src/dpiInfo.cpp
+	["h"]
+	h/dpiInfo.h
+}
