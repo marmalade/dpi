@@ -2,7 +2,7 @@
 
 namespace DPI
 {
-	enum toeLengthUnit
+	enum dpiLengthUnit
 	{
 		PX, //Pixels
 		PT, //Points (1/72 of inch)

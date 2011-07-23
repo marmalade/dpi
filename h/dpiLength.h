@@ -8,7 +8,7 @@ namespace DPI
 {
 	struct CdpiLength
 	{
-		enum toeLengthUnit
+		enum dpiLengthUnit
 		{
 			PX, //Pixels
 			PT, //Points (1/72 of inch)
@@ -16,7 +16,7 @@ namespace DPI
 		};
 
 		iwfixed Value;
-		toeLengthUnit Unit;
+		dpiLengthUnit Unit;
 
 		inline bool IsZero() const {return Value == 0;}
 
@@ -44,7 +44,7 @@ namespace DPI
 			}
 			return res;
 		}
-		CdpiLength(int32 v, toeLengthUnit u):Value(v),Unit(u){}
+		CdpiLength(int32 v, dpiLengthUnit u):Value(v),Unit(u){}
 		CdpiLength():Value(0),Unit(PX){}
 		void Serialise();
 		void	ParseAttribute(CIwTextParserITX* pParser);
