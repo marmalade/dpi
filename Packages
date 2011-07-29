@@ -4,20 +4,20 @@
 Package-Format: 2
 Package: dpi
 Version: 1.0.0
-Revision: 1
+Revision: 2
 Maintainer: Game Master <gamemaster@101gr.com>
-Type: platform-independant
 Description: |
   DPI module allows to detect device DPI
 Built-With: 5.1.0
-Filename: dpi_1.0.0-1.mdev
-Size: 3137
-MD5Sum: 69f0f09813eed02ec09463303baea451
+Type: platform-independant
+Filename: dpi_1.0.0-2.mdev
+Size: 872542
+MD5Sum: 29ca38836c8314ce2eae9fcf05b7c0d1
 
 Source: dpi
 Version: 1.0.0
-Revision: 1
+Revision: 2
 Type: platform-independant
-Filename: dpi_1.0.0-1.msrc
-Size: 3176
-MD5Sum: bfa69f1323be09b4164a2bea304191f6
+Filename: dpi_1.0.0-2.msrc
+Size: 872374
+MD5Sum: adece07ef8ad7304a0d262de05cbedcf
