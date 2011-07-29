@@ -12,3 +12,8 @@ files
 	h/dpiLength.h
 	h/dpiLengthUnit.h
 }
+subprojects
+{
+	iwgx
+	extensions/dpiExt.mkf
+}

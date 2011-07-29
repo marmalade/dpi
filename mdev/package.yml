@@ -1,6 +1,6 @@
 Package: dpi
 Version: 1.0.0
-Revision: 1
+Revision: 2
 Maintainer: Game Master <gamemaster@101gr.com>
 Description: |
  DPI module allows to detect device DPI
@@ -11,6 +11,9 @@ Contents:
  - src
  - h
  - README
-#Contents-platform:
-# win32:
-#  - lib/x86/README
+ - extensions/dpiExt.mkf
+ - extensions/lib
+ - extensions/source
+ - extensions/h
+ - extensions/interface
+ - extensions/stamp

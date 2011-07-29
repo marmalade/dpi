@@ -1,6 +1,7 @@
 #include <IwDebug.h>
 #include <dpiInfo.h>
 #include <iwgx.h>
+#include <dpiExt.h>
 
 namespace DPI
 {
@@ -59,6 +60,12 @@ int32 DPI::dpiGetScreenDPI()
 		return dpiGetScreenDPI_iOS();
 	default:
 		break;
+	}
+	if (dpiExtAvailable())
+	{
+		int dpiExtRes = dpiExtGetDeviceDPI();
+		if (dpiExtRes > 0)
+			return dpiExtRes;
 	}
 	return 163;
 }
