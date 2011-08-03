@@ -7,6 +7,7 @@
  * be overwritten (unless --force is specified) and is intended to be modified.
  */
 #include "dpiExt_internal.h"
+#include <Windows.h>
 
 s3eResult dpiExtInit_platform()
 {
@@ -21,6 +22,9 @@ void dpiExtTerminate_platform()
 
 int dpiExtGetDeviceDPI_platform()
 {
-	//TODO: replace with real code
-    return 96;
+	HDC hScreenDC = GetDC( NULL );
+	int PixelsX = GetDeviceCaps( hScreenDC, HORZRES );
+	int MMX = GetDeviceCaps( hScreenDC, HORZSIZE );
+	ReleaseDC( NULL, hScreenDC );	
+    return 254*PixelsX/MMX/10;
 }

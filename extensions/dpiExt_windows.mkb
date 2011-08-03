@@ -13,3 +13,8 @@ options
 define S3E_BUILD_EXT
 
 subproject dpiExt_build
+library
+    {
+        user32.lib
+	gdi32.lib
+    }
