@@ -6,7 +6,8 @@
 namespace DPI
 {
 	int initCounter = 0;
-
+	bool g_dpiChached = false;
+	int g_dpiChachedValue = 96;
 	int32 dpiGetScreenDPI_iOS()
 	{
 		uint32 w = IwGxGetScreenWidth();
@@ -53,19 +54,25 @@ void DPI::dpiTerminate()
 
 int32 DPI::dpiGetScreenDPI()
 {
+	if (g_dpiChached)
+		return g_dpiChachedValue;
+
 	int32 os = s3eDeviceGetInt(S3E_DEVICE_OS);
+
+	g_dpiChached = true;
 	switch (os)
 	{
 	case S3E_OS_ID_IPHONE:
-		return dpiGetScreenDPI_iOS();
+		g_dpiChachedValue = dpiGetScreenDPI_iOS();
+		break;
 	default:
 		break;
 	}
 	if (dpiExtAvailable())
 	{
-		int dpiExtRes = dpiExtGetDeviceDPI();
-		if (dpiExtRes > 0)
-			return dpiExtRes;
+		g_dpiChachedValue = dpiExtGetDeviceDPI();
+		if (g_dpiChachedValue == 0)
+			g_dpiChachedValue = 96;
 	}
-	return 163;
+	return g_dpiChachedValue;
 }
