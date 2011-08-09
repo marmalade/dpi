@@ -21,18 +21,6 @@ namespace DPI
 		return 96;
 	}
 
-	int32 dpiGetScreenDPI_Bada()
-	{
-		switch (s3eDeviceGetInt(S3E_DEVICE_ID))
-		{
-			case 754973890: //Wave 525
-				return 146;
-			default:
-				break;
-		}
-		return 96;
-	}
-
 	int32 dpiGetScreenDPI_iOS()
 	{
 		uint32 w = IwGxGetScreenWidth();
