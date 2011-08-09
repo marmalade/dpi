@@ -8,6 +8,31 @@ namespace DPI
 	int initCounter = 0;
 	bool g_dpiChached = false;
 	int g_dpiChachedValue = 96;
+
+	int32 dpiGetScreenDPI_Bada()
+	{
+		switch (s3eDeviceGetInt(S3E_DEVICE_ID))
+		{
+			case 754973890: //Wave 525 ("GT-S5250")
+				return 146;
+			default:
+				break;
+		}
+		return 96;
+	}
+
+	int32 dpiGetScreenDPI_Bada()
+	{
+		switch (s3eDeviceGetInt(S3E_DEVICE_ID))
+		{
+			case 754973890: //Wave 525
+				return 146;
+			default:
+				break;
+		}
+		return 96;
+	}
+
 	int32 dpiGetScreenDPI_iOS()
 	{
 		uint32 w = IwGxGetScreenWidth();
@@ -64,6 +89,9 @@ int32 DPI::dpiGetScreenDPI()
 	{
 	case S3E_OS_ID_IPHONE:
 		g_dpiChachedValue = dpiGetScreenDPI_iOS();
+		break;
+	case S3E_OS_ID_BADA:
+		g_dpiChachedValue = dpiGetScreenDPI_Bada();
 		break;
 	default:
 		break;
