@@ -14,12 +14,26 @@ import android.util.DisplayMetrics;
 import com.ideaworks3d.marmalade.LoaderActivity;
 
 
+
 class dpiExt
 {
     public int dpiExtGetDeviceDPI()
     {
-	DisplayMetrics metrics = new DisplayMetrics();
-	LoaderActivity.m_Activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-	return (int)(metrics.density*160.0f);
+		DisplayMetrics metrics = new DisplayMetrics();
+		Activity a = LoaderActivity.m_Activity;
+		if (a != null)
+		{
+			WindowManager wm = a.getWindowManager();
+			if (wm != null)
+			{
+				Display d = wm.getDefaultDisplay();
+				if (d != null)
+				{
+					d.getMetrics(metrics);
+					return (int)(metrics.density*160.0f);
+				}
+			}
+		}
+		return -1;
     }
 }

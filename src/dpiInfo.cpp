@@ -15,10 +15,12 @@ namespace DPI
 		{
 			case 754973890: //Wave 525 ("GT-S5250")
 				return 146;
+			case 755065988: //Bada Wave GT-S8500
+				return 283;
 			default:
 				break;
 		}
-		return 96;
+		return 146;
 	}
 
 	int32 dpiGetScreenDPI_iOS()
