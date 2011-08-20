@@ -1,4 +1,5 @@
 #include <s3e.h>
+#include <sstream>
 #include <iwgx.h>
 #include <dpiInfo.h>
 
@@ -13,7 +14,6 @@ int main(int argc, char* argv[])
 	DPI::dpiInit();
 	IwGxSetColClear(0x1f, 0x1f, 0xc0, 0x7f);
 
-	int32 d = DPI::dpiGetScreenDPI();
 	{
 
 		for (;;)
@@ -33,6 +33,13 @@ int main(int argc, char* argv[])
 
 			//IwGxClear(IW_GX_DEPTH_BUFFER_F);
 			IwGxClear(IW_GX_COLOUR_BUFFER_F | IW_GX_DEPTH_BUFFER_F);
+
+			int32 d = DPI::dpiGetScreenDPI();
+			std::stringstream stream;
+			stream << "DPI = " << d;
+			std::string s = stream.str();
+
+			IwGxPrintString(20,20,s.c_str());
 
 			IwGxFlush();
 			IwGxSwapBuffers();

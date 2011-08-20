@@ -10,8 +10,14 @@ These functions are called via JNI from native code.
  * be overwritten (unless --force is specified) and is intended to be modified.
  */
 import com.ideaworks3d.marmalade.LoaderAPI;
-import android.util.DisplayMetrics;
 import com.ideaworks3d.marmalade.LoaderActivity;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.WindowManager;
+import android.widget.TextView;
+import android.util.DisplayMetrics;
 
 
 
