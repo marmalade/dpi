@@ -19,7 +19,10 @@ extern s3eResult dpiExtInit();
 extern void dpiExtTerminate();
 
 
-#if defined I3D_OS_IPHONE || defined I3D_OS_OSX
+// On platforms that use a seperate UI/OS thread we can autowrap functions
+// here.   Note that we can't use the S3E_USE_OS_THREAD define since this
+// code is oftern build standalone, outside the main loader build.
+#if defined I3D_OS_IPHONE || defined I3D_OS_OSX || defined I3D_OS_LINUX || defined I3D_OS_WINDOWS
 
 static int dpiExtGetDeviceDPI_wrap()
 {
@@ -29,7 +32,7 @@ static int dpiExtGetDeviceDPI_wrap()
 
 #define dpiExtGetDeviceDPI dpiExtGetDeviceDPI_wrap
 
-#endif /* I3D_OS_IPHONE */
+#endif
 
 void dpiExtRegisterExt()
 {
