@@ -35,7 +35,7 @@ namespace DPI
 			return 163;
 		if (w == 1024)
 			return 132;
-		if (w == 326)
+		if (w == 960)
 			return 326;
 		return 163;
 
