@@ -31,12 +31,14 @@ namespace DPI
 		{
 			uint32 i = w;w=h;h=i;
 		}
-		if (w == 480)
+		if (w == 480)   // iPhone 3 and older
 			return 163;
-		if (w == 1024)
+		if (w == 1024)  // iPad 1 & 2
 			return 132;
-		if (w == 960)
+		if (w == 960)   // iPhone 4
 			return 326;
+		if (w == 2048)  // iPad 3
+			return 264;
 		return 163;
 
 		//const char* deviceID = s3eDeviceGetString(S3E_DEVICE_ID);
@@ -84,13 +86,15 @@ int32 DPI::dpiGetScreenDPI()
 		g_dpiChachedValue = dpiGetScreenDPI_Bada();
 		break;
 	default:
+		if (dpiExtAvailable())
+		{
+			g_dpiChachedValue = dpiExtGetDeviceDPI();
+			if (g_dpiChachedValue == 0)
+				g_dpiChachedValue = 96;
+			
+		}
 		break;
-	}
-	if (dpiExtAvailable())
-	{
-		g_dpiChachedValue = dpiExtGetDeviceDPI();
-		if (g_dpiChachedValue == 0)
-			g_dpiChachedValue = 96;
-	}
+		
+	}	
 	return g_dpiChachedValue;
 }
